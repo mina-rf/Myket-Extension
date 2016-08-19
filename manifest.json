@@ -6,7 +6,7 @@
   "version": "1.0",
 
   "browser_action": {
-    "default_icon": "icons/icon.png",
+    "default_icon": "contents/icon.png",
     "default_popup": "AppsList/main.view.html"
   },
   "permissions": [

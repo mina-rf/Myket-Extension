@@ -9,11 +9,11 @@
     <script src="../angular.js"></script>
     <script src="app.module.js"></script>
     <script src="app.controller.js"></script>
-    <script src="authorization.factory.js"></script>
-    <script src="data.factory.js"></script>
-    <script src="notification.factory.js"></script>
-    <script src="app.main.card.directive.js"></script>
-    <link rel="stylesheet" type="text/css" href="../stylesheets/app.style.css">
+    <script src="services/authorization.factory.js"></script>
+    <script src="services/data.factory.js"></script>
+    <script src="services/notification.factory.js"></script>
+    <script src="directives/app.main.card.directive.js"></script>
+    <link rel="stylesheet" type="text/css" href="../contents/app.style.css">
 
 </head>
 <body ng-app="myketAddOn" ng-controller="AddOnController as addOn" style="min-width: 400px ; min-height: 400px">
@@ -24,7 +24,7 @@
         <header class="mdl-layout__header" style="background-color:#00b0ff">
             <div class="mdl-layout__header-row" style="position: relative">
                 <!-- Title -->
-                <span  class="logo" > <img src="../icons/logo.png"></span>
+                <span  class="logo" > <img src="../contents/logo.png"></span>
                 <!--<span class="mdl-layout-title" style="font-family: X Nazanin">{{addOn.test}} </span>-->
             </div>
             <!-- Tabs -->

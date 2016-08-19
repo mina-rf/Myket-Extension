@@ -12,7 +12,7 @@ function appMainCard(notification) {
         scope: {
             app: '=app'
         },
-        templateUrl: "app.main.card.directive.html",
+        templateUrl: "directives/app.main.card.directive.html",
         link : linkAppMainCard
     };
 
@@ -36,4 +36,5 @@ function appMainCard(notification) {
 
 
 };
+
 
