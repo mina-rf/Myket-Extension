@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../mdl/material.min.css">
+    <script src="../mdl/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="../angular.js"></script>
+    <script src="app.module.js"></script>
+    <script src="app.controller.js"></script>
+    <script src="authorization.factory.js"></script>
+    <script src="data.factory.js"></script>
+    <script src="notification.factory.js"></script>
+    <script src="app.main.card.directive.js"></script>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/app.style.css">
+
+</head>
+<body ng-app="myketAddOn" ng-controller="AddOnController as addOn" style="min-width: 400px ; min-height: 400px">
+
+<div class="home">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+            mdl-layout--fixed-tabs" style="background-color: white">
+        <header class="mdl-layout__header" style="background-color:#00b0ff">
+            <div class="mdl-layout__header-row" style="position: relative">
+                <!-- Title -->
+                <span  class="logo" > <img src="../icons/logo.png"></span>
+                <!--<span class="mdl-layout-title" style="font-family: X Nazanin">{{addOn.test}} </span>-->
+            </div>
+            <!-- Tabs -->
+            <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                <a href="#fixed-tab-1" class="mdl-layout__tab " style="background-color:#00b0ff">تازه های برتر</a>
+                <a href="#fixed-tab-2" class="mdl-layout__tab" style="background-color:#00b0ff">  در حال پیشرفت</a>
+                <a href="#fixed-tab-3" class="mdl-layout__tab" style="background-color:#00b0ff"> برترین‌های درون پرداخت </a>
+                <a href="#fixed-tab-4" class="mdl-layout__tab is-active" style="background-color:#00b0ff"> برترین‌های فروشی </a>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title" style="background-color: #00b0ff ; direction: rtl ; font-family: X Nazanin ; color: white">لیست مورد علاقه</span>
+            <div class="apps">
+
+                <app-main-card  ng-repeat="item in addOn.followings" app="item"></app-main-card>
+            </div>
+        </div>
+        <main class="mdl-layout__content">
+            <section class="mdl-layout__tab-panel " id="fixed-tab-1">
+                <div class="page-content">
+                    <div class="apps">
+                        <app-main-card  ng-repeat="item in addOn.newBest" app="item"></app-main-card>
+                    </div>
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+                <div class="page-content">
+                    <div class="apps">
+                        <app-main-card  ng-repeat="item in addOn.progressing" app="item"></app-main-card>
+                    </div></div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+                <div class="page-content">
+                    <div class="apps">
+                        <app-main-card  ng-repeat="item in addOn.bestInnerPayment" app="item"></app-main-card>
+                    </div>
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel is-active" id="fixed-tab-4">
+                <div class="page-content">
+                    <div class="apps">
+                        <app-main-card  ng-repeat="item in addOn.bestNotFree" app="item"></app-main-card>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+
+
+</body>
+
+</html>

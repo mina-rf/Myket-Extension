@@ -1,0 +1,30 @@
+<div class = "app_card">
+    <div class = "app_icon" ng-click="clickOnIcon()">
+        <img src={{app.iconPath}} style="max-width: 100% ; max-height: 100% ;
+            margin: auto;
+            display : block ">
+    </div>
+    <div class="about_app">
+        <div class="app_title">
+            {{app.title}}
+        </div>
+        <div class="app_price">
+            {{app.price}}
+        </div>
+
+
+    </div><div class="new_app">
+    {{app.isNew ? "(جدید)" :"" }}
+</div>
+
+    <div class="app_buttons">
+        <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;icon">-->
+        <!--<i class="material-icons">file download</i>-->
+        <!--</button>-->
+        <button class="mdl-button mdl-js-button mdl-button--icon"  ng-click="clickOnReminder()"  >
+            <i class="material-icons" ng-style="{'color': app.isFollowed ? 'green' : 'gray'}" >alarm add</i>
+        </button>
+
+    </div>
+
+</div>

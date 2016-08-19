@@ -1,0 +1,90 @@
+.home{
+    background-color: aliceblue;
+    font-family: X Nazanin;
+}
+.apps{
+    /*display: inline-table;*/
+    /*width: 250px;*/
+    /*margin: auto;*/
+
+}
+.logo{
+    /*float: left;*/
+    position: absolute; top: 0 ; right: 0; margin: 10px;
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    /*float: right;*/
+}
+.app_card{
+    /*display: inline-block;*/
+    box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    background-color: aliceblue;
+    font-family: X Nazanin;
+    padding: 10px;
+    /*width: 170px;*/
+    /*height: 210px;*/
+    margin: 10px;
+    /*text-align: center;*/
+    direction: rtl;
+    position: relative;
+
+}
+
+.app_card:hover{
+    background-color: whitesmoke;
+}
+
+.app_buttons{
+    display: inline-block;
+    direction: ltr;
+    position: absolute;
+    left:10px;
+    top: 20px;
+}
+
+.about_app{
+    display: inline-block;
+    /*text-align: center;*/
+    /*box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);*/
+    /*background-color: #d7ccc8;*/
+    direction: rtl;
+}
+.app_icon{
+    width: 50px;
+    height : 50px ;
+    direction: rtl;
+    display: inline-block;
+    /*text-align: center;*/
+}
+.app_icon:hover{
+    cursor: pointer;
+}
+.app_icon img{
+    max-width: 100% ;
+    max-height: 100% ;
+    margin: auto;
+    display : block
+}
+.app_title{
+    display: block;
+    padding: 4px;
+    /*font-size: ;*/
+}
+.app_price{
+    display: block;
+    padding: 2px;
+    font-size: small;
+    color: gray;
+}
+
+.new_app{
+    display: inline-block;
+    direction: ltr;
+    position: absolute;
+    /*left:10px;*/
+    top: 22px;
+    marign : 20px;
+    color: darkred;
+    font-size: small;
+}

@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "Myket Add-On",
+  "description": "This extension will help you follow your favorite apps on Myket",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icons/icon.png",
+    "default_popup": "AppsList/main.view.html"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "background": {
+    "page": "background/background.html"
+  }
+}
