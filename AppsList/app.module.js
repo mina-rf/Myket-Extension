@@ -7,6 +7,10 @@
     'use strict';
 
     angular
-        .module('myketAddOn', []);
+        .module('myketAddOn', ['ngMaterial']).config(function($mdThemingProvider) {
+        $mdThemingProvider.theme('default')
+            .primaryPalette('blue')
+            .accentPalette('pink');
+    });
 
 })();

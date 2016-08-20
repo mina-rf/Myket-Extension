@@ -19,8 +19,9 @@ function authorize(){
 };
 
 
-function pushAuthorizeCode($httpProvider){
+function pushAuthorizeCode($httpProvider ){
     $httpProvider.interceptors.push('authorization');
+
 };
 
 // (function () {

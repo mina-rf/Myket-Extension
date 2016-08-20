@@ -9,12 +9,20 @@
         .module('myketAddOn')
         .controller('AddOnController', AddOnController);
 
-    AddOnController.$inject = [ 'data' , 'notification'];
+    AddOnController.$inject = [ 'data' , 'notification' , '$mdSidenav'];
 
     /* @ngInject */
-    function AddOnController(data ,notification) {
+    function AddOnController(data ,notification , $mdSidenav) {
         var vm = this;
         vm.title = 'ControllerName';
+
+        vm.toggleLeft = buildToggler('left');
+        vm.toggleRight = buildToggler('right');
+        function buildToggler(componentId) {
+            return function() {
+                $mdSidenav(componentId).toggle();
+            }
+        };
 
         vm.test='test';
         vm.start = function () {

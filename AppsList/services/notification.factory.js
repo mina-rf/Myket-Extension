@@ -143,19 +143,25 @@ function notification($interval , data) {
     function notifForNewApp(app) {
         var options = {
             body: app.title,
-            icon: "icon.png"
+            icon: app.iconPath
         };
-        var n = new Notification("اپلیکیشن جدید", options);
-        setTimeout(n.close.bind(n), 3000);
+        var n = new Notification("اپلیکیشن جدید!", options);
+        n.onclick = function () {
+            window.open('https://myket.ir/app/' +app.packageName+'/'+app.title);
+        };
+        setTimeout(n.close.bind(n), 5000);
     };
 
     function notifForNewVersion(app) {
         var options = {
             body: 'نسخه جدید اپلیکیشن '+ app.title +'موجود است.',
-            icon: "icon.png"
+            icon: app.iconPath
         };
         var n = new Notification("به روز رسانی! ", options);
-        setTimeout(n.close.bind(n), 3000);
+        n.onclick = function () {
+            window.open('https://myket.ir/app/' +app.packageName+'/'+app.title);
+        };
+        setTimeout(n.close.bind(n), 5000);
     };
 
 
