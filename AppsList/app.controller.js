@@ -14,7 +14,7 @@
     /* @ngInject */
     function AddOnController(data ,notification , $mdSidenav) {
         var vm = this;
-        vm.title = 'ControllerName';
+        vm.title = 'AddOnController';
 
         vm.toggleLeft = buildToggler('left');
         vm.toggleRight = buildToggler('right');
@@ -26,21 +26,26 @@
 
         vm.test='test';
         vm.start = function () {
-            data.getApps().then(function (response) {
-
-                vm.newBest = notification.checkIfFollowed(notification.checkIfNew(response.data['apps'][0]['apps']));
-                vm.progressing = notification.checkIfFollowed(notification.checkIfNew(response.data['apps'][1]['apps']));
-                vm.bestInnerPayment = notification.checkIfFollowed(notification.checkIfNew(response.data['apps'][2]['apps']));
-                vm.bestNotFree = notification.checkIfFollowed(notification.checkIfNew(response.data['apps'][3]['apps']));
-                // response.data['apps'][1]['apps'].push($scope.newApp);
-                if (localStorage.getItem('updateReminders'))
-                    vm.followings = notification.checkIfFollowed(notification.checkIfNew(JSON.parse(localStorage.getItem('updateReminders'))));
-
-                console.log(vm.newBest)
+            data.getAllNew().then(function (response) {
+                vm.newBest = notification.checkIfFollowed(notification.checkIfNew(response.data['appPlusMetaDataList']));
             });
+            data.getBestSelling().then(function (response) {
+                vm.bestNotFree = notification.checkIfFollowed(notification.checkIfNew(response.data['appPlusMetaDataList']));
+            });
+            data.getProgressing().then(function (response) {
+                vm.progressing = notification.checkIfFollowed(notification.checkIfNew(response.data['appPlusMetaDataList']));
+            });
+            data.getTopNew().then(function (response) {
+                vm.topNew = notification.checkIfFollowed(notification.checkIfNew(response.data['appPlusMetaDataList']));
+            });
+
+            if (localStorage.getItem('updateReminders'))
+                vm.followings = notification.checkIfFollowed(notification.checkIfNew(JSON.parse(localStorage.getItem('updateReminders'))));
+
 
 
         };
+
         activate();
 
         ////////////////

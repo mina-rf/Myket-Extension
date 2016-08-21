@@ -90,39 +90,50 @@ function notification($interval , data) {
     }
 
     function checkForNewApp() {
-       data.getApps().then(function (response) {
-           searchNewApp(response);
-       });
+
+        data.getAllNew().then(function (response) {
+            searchForNewApp(response.data['appPlusMetaDataList']);
+        });
+        data.getTopNew().then(function (response) {
+            searchForNewApp(response.data['appPlusMetaDataList']);
+        });
+        data.getBestSelling().then(function (response) {
+            searchForNewApp(response.data['appPlusMetaDataList']);
+        });
+        data.getProgressing().then(function (response) {
+            searchForNewApp(response.data['appPlusMetaDataList']);
+        });
     }
-    function searchNewApp(response) {
+
+
+    function searchForNewApp(apps) {
         if (!localStorage.getItem('apps')){
             result = []
-            for (var i = 0; i < response.data['apps'].length; i++) {
-                for (var j = 0; j < response.data['apps'][i]['apps'].length; j++) {
-                    var appName = response.data['apps'][i]['apps'][j]['title'];
+
+                for (var j = 0; j < apps.length; j++) {
+                    var appName = apps[j]['title'];
                     result.push(appName);
                 }
-            }
+
             localStorage.setItem('apps',JSON.stringify(result));
 
         }
         else{
-            apps = JSON.parse(localStorage.getItem('apps'));
+            savedApp = JSON.parse(localStorage.getItem('apps'));
             console.log(apps);
-            for (var i = 0; i < response.data['apps'].length; i++) {
-                for (var j = 0; j < response.data['apps'][i]['apps'].length; j++) {
-                    var appName = response.data['apps'][i]['apps'][j]['title'];
-                    if (apps.indexOf(appName) == -1){
+
+                for (var j = 0; j < apps.length; j++) {
+                    var appName = apps[j]['title'];
+                    if (savedApp.indexOf(appName) == -1){
                         console.log('new app');
-                        notifForNewApp(response.data['apps'][i]['apps'][j]);
-                        apps.push(appName);
+                        notifForNewApp(apps[j]);
+                        savedApp.push(appName);
                     }
                 }
-            }
-            localStorage.setItem('apps',JSON.stringify(apps));
-        }
 
-    };
+            localStorage.setItem('apps',JSON.stringify(savedApp));
+        }
+    }
 
 
     function checkForNewVersion(){
